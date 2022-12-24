@@ -4,6 +4,7 @@ This repository is where I'll put any fix that is f\*cked up to any problem as f
 It's a personal repository and is not destined to be universal, but feel free to check if you have a problem listed here.
 
 * [Bootloader doesn't launch after Windows update](#bootloader-doesnt-launch-after-windows-update)
+* [Civilization VI doesn't work / remove 2KLauncher on Linux](#civilization-vi-doesnt-work--remove-2klauncher-on-linux)
 * [WiFi at startup](#wifi-at-startup)
 
 
@@ -25,6 +26,14 @@ If partitions numbers have been swapped, then you must recreate your boot entrie
 # efibootmgr -c -d /dev/nvme0n1 -p <partition number> -L "rEFInd Boot Manager" -l "\EFI\REFIND\REFIND_X64.EFI"
 ```
 5. **Make sure to edit partitions' numbers in your bootloader's config file, in lines like `rw root=/dev/nvme0n1pX ...`).**
+
+
+# Civilization VI doesn't work / remove 2KLauncher on Linux
+
+Enable Proton, and then set this as starting command in Steam, replacing `/CivilizationVI` with `/CivilizationVI_DX12` if you're using DX12:
+```sh
+eval $( echo "%command%" | sed "s/2KLauncher\/LauncherPatcher.exe'.*/Base\/Binaries\/Win64Steam\/CivilizationVI'/" )
+```
 
 
 # WiFi at startup
